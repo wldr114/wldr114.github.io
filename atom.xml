@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>wldr</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>http://example.com/</id>
+  <link href="http://example.com/" rel="alternate"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, wldr</rights>
+  <subtitle>wldr114</subtitle>
+  <title>Hexo</title>
+  <updated>2026-05-08T07:00:44.537Z</updated>
+  <entry>
+    <author>
+      <name>wldr</name>
+    </author>
+    <content>
+      <![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul><li>Web 安全学习</li><li>CTF 做题笔记</li><li>Java 基础</li><li>Linux 和工具使用</li></ul><h2 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h2><p>最近在重新学习 Web 安全，主要了解了：</p><ul><li>文件上传漏洞</li><li>JWT 基础</li><li>BurpSuite 的简单使用</li><li>Java 审计入门</li></ul><p>虽然现在还比较菜，不过希望以后能坚持更新。</p><h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。</p><pre><code class="bash">hexo cleanhexo ghexo d</code></pre>]]>
+    </content>
+    <id>http://example.com/2026/05/08/Frist%20Blog/</id>
+    <link href="http://example.com/2026/05/08/Frist%20Blog/"/>
+    <published>2026-05-08T06:57:18.591Z</published>
+    <summary>
+      <![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul>
+<li>Web 安全学习</li>
+<li>CTF 做题笔记</li>
+<li>Java 基础<]]>
+    </summary>
+    <title>Frist Blog</title>
+    <updated>2026-05-08T07:00:44.537Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>wldr</name>
+    </author>
+    <id>http://example.com/2024/12/28/hello-world/</id>
+    <link href="http://example.com/2024/12/28/hello-world/"/>
+    <published>2024-12-28T03:08:12.293Z</published>
+    <title>Hello World</title>
+    <updated>2026-05-08T07:42:48.059Z</updated>
+  </entry>
+</feed>

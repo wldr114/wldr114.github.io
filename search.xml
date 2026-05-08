@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Frist Blog</title>
+      <link href="/2026/05/08/Frist%20Blog/"/>
+      <url>/2026/05/08/Frist%20Blog/</url>
+      
+        <content type="html"><![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul><li>Web 安全学习</li><li>CTF 做题笔记</li><li>Java 基础</li><li>Linux 和工具使用</li></ul><h2 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h2><p>最近在重新学习 Web 安全，主要了解了：</p><ul><li>文件上传漏洞</li><li>JWT 基础</li><li>BurpSuite 的简单使用</li><li>Java 审计入门</li></ul><p>虽然现在还比较菜，不过希望以后能坚持更新。</p><h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。</p><pre><code class="bash">hexo cleanhexo ghexo d</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2024/12/28/hello-world/"/>
+      <url>/2024/12/28/hello-world/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
