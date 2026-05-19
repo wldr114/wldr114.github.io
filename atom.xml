@@ -10,13 +10,30 @@
   <rights>All rights reserved 2026, wldr</rights>
   <subtitle>wldr114</subtitle>
   <title>Hexo</title>
-  <updated>2026-05-08T07:00:44.537Z</updated>
+  <updated>2026-05-19T05:17:27.046Z</updated>
   <entry>
     <author>
       <name>wldr</name>
     </author>
     <content>
-      <![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul><li>Web 安全学习</li><li>CTF 做题笔记</li><li>Java 基础</li><li>Linux 和工具使用</li></ul><h2 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h2><p>最近在重新学习 Web 安全，主要了解了：</p><ul><li>文件上传漏洞</li><li>JWT 基础</li><li>BurpSuite 的简单使用</li><li>Java 审计入门</li></ul><p>虽然现在还比较菜，不过希望以后能坚持更新。</p><h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。</p><pre><code class="bash">hexo cleanhexo ghexo d</code></pre>]]>
+      <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天开始捣鼓 Git 和 GitHub  写点项目、学好版本控制</p><h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>先贴一张今天的成果图</p><p><img src="/pt/git.png" alt="Git 操作截图"></p><h2 id="Git-工作流实战"><a href="#Git-工作流实战" class="headerlink" title="Git 工作流实战"></a>Git 工作流实战</h2><p>操作流程</p><h3 id="1-克隆仓库到本地"><a href="#1-克隆仓库到本地" class="headerlink" title="1. 克隆仓库到本地"></a>1. 克隆仓库到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/wldr114/school-lab-experiments</span><br><span class="line"><span class="comment"># 把远程仓库完整复制到本地，会自动创建本地目录</span></span><br></pre></td></tr></table></figure><h3 id="2-创建并切换到新分支"><a href="#2-创建并切换到新分支" class="headerlink" title="2. 创建并切换到新分支"></a>2. 创建并切换到新分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b my-feature</span><br><span class="line"><span class="comment"># -b 表示创建新分支并切换过去</span></span><br><span class="line"><span class="comment"># my-feature 是分支名，开发新功能最好别直接在 main 上改</span></span><br></pre></td></tr></table></figure><h3 id="3-查看改动"><a href="#3-查看改动" class="headerlink" title="3. 查看改动"></a>3. 查看改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br><span class="line"><span class="comment"># 查看工作区相对于暂存区的具体改动内容</span></span><br><span class="line"><span class="comment"># 用来确认自己改了什么，很实用的命令</span></span><br></pre></td></tr></table></figure><h3 id="4-暂存所有改动"><a href="#4-暂存所有改动" class="headerlink" title="4. 暂存所有改动"></a>4. 暂存所有改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"><span class="comment"># . 表示把当前目录下所有改动加入暂存区（staging area）</span></span><br><span class="line"><span class="comment"># git add 之后，改动才算&quot;准备提交&quot;的状态</span></span><br></pre></td></tr></table></figure><h3 id="5-提交改动"><a href="#5-提交改动" class="headerlink" title="5. 提交改动"></a>5. 提交改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;更新 README.md&quot;</span></span><br><span class="line"><span class="comment"># -m 后面跟提交信息，描述这次改了什么</span></span><br><span class="line"><span class="comment"># 养成写清楚 commit message 的习惯很重要</span></span><br></pre></td></tr></table></figure><h3 id="6-推送到远程仓库"><a href="#6-推送到远程仓库" class="headerlink" title="6. 推送到远程仓库"></a>6. 推送到远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin my-feature</span><br><span class="line"><span class="comment"># -u 表示把本地分支和远程分支关联起来（upstream）</span></span><br><span class="line"><span class="comment"># origin 是远程仓库的默认名称</span></span><br><span class="line"><span class="comment"># my-feature 是要推送的分支名</span></span><br><span class="line"><span class="comment"># 关联之后，下次直接 git push 就可以</span></span><br></pre></td></tr></table></figure><h2 id="一些疑问：git-push-f-危不危险？"><a href="#一些疑问：git-push-f-危不危险？" class="headerlink" title="一些疑问：git push -f 危不危险？"></a>一些疑问：<code>git push -f</code> 危不危险？</h2><p><code>git push -f</code>（即 <code>git push --force</code>）会强行用本地的提交历史覆盖远程分支……</p><h2 id="今日总结"><a href="#今日总结" class="headerlink" title="今日总结"></a>今日总结</h2><p>学习了 Git 的基本工作流clone → 建分支 → 改代码 → diff 检查 → add 暂存 → commit 提交 → push 推送，这是日常开发的标准流程</p><p>以后坚持每天写代码、写博客，慢慢积累</p>]]>
+    </content>
+    <id>http://example.com/2026/05/19/Git-Getting-Started/</id>
+    <link href="http://example.com/2026/05/19/Git-Getting-Started/"/>
+    <published>2026-05-19T05:13:25.053Z</published>
+    <summary>
+      <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天开始捣鼓 Git 和 GitHub  写点项目、学好版本控制</p>
+<h2 id="成果展示"><a href="#成果展示" cla]]>
+    </summary>
+    <title>Git 入门：从 clone 到 push</title>
+    <updated>2026-05-19T05:17:27.046Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>wldr</name>
+    </author>
+    <content>
+      <![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul><li>Web 安全学习</li><li>CTF 做题笔记</li><li>Java 基础</li><li>Linux 和工具使用</li></ul><h2 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h2><p>最近在重新学习 Web 安全，主要了解了：</p><ul><li>文件上传漏洞</li><li>JWT 基础</li><li>BurpSuite 的简单使用</li><li>Java 审计入门</li></ul><p>虽然现在还比较菜，不过希望以后能坚持更新。</p><h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。</p>]]>
     </content>
     <id>http://example.com/2026/05/08/Frist%20Blog/</id>
     <link href="http://example.com/2026/05/08/Frist%20Blog/"/>
@@ -28,7 +45,7 @@
 <li>Java 基础<]]>
     </summary>
     <title>Frist Blog</title>
-    <updated>2026-05-08T07:00:44.537Z</updated>
+    <updated>2026-05-19T03:37:25.955Z</updated>
   </entry>
   <entry>
     <author>
