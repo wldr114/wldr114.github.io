@@ -10,21 +10,21 @@
     <meta name="copyright" content="wldr">
         <meta name="keywords" content="Web Security,CTF,Java,Hexo,Cyber Security">
     <meta name="description" content="">
-    <meta name="description" content="我的第一篇博客 Web 安全学习 CTF 做题笔记 Java 基础 Linux 和工具使用  最近在学什么最近在重新学习 Web 安全，主要了解了：  文件上传漏洞 JWT 基础 BurpSuite 的简单使用 Java 审计入门  虽然现在还比较菜，不过希望以后能坚持更新。 关于这个博客这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。">
+    <meta name="description" content="前言学了不少东西，东一块西一块的，趁这个机会整理一下自己到底学了什么，也梳理下以后的方向。这篇算是第二篇正经博客，之前那篇 First Blog 随便写的，不用管它。  C&#x2F;C++：从语法到 STL，再到啃不动的书C&#x2F;C++ 是最早系统学的语言，从最基本的语法（指针、内存管理、结构体、类）到 STL 容器（vector、map、set、queue、stack、priority_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Frist Blog">
-<meta property="og:url" content="http://example.com/2026/05/08/Frist%20Blog/index.html">
+<meta property="og:title" content="学习回顾：从 C 语言到二进制安全">
+<meta property="og:url" content="http://example.com/2026/05/19/Learning-Retrospective/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我的第一篇博客 Web 安全学习 CTF 做题笔记 Java 基础 Linux 和工具使用  最近在学什么最近在重新学习 Web 安全，主要了解了：  文件上传漏洞 JWT 基础 BurpSuite 的简单使用 Java 审计入门  虽然现在还比较菜，不过希望以后能坚持更新。 关于这个博客这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。">
+<meta property="og:description" content="前言学了不少东西，东一块西一块的，趁这个机会整理一下自己到底学了什么，也梳理下以后的方向。这篇算是第二篇正经博客，之前那篇 First Blog 随便写的，不用管它。  C&#x2F;C++：从语法到 STL，再到啃不动的书C&#x2F;C++ 是最早系统学的语言，从最基本的语法（指针、内存管理、结构体、类）到 STL 容器（vector、map、set、queue、stack、priority_">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-08T06:57:18.591Z">
-<meta property="article:modified_time" content="2026-05-19T03:37:25.955Z">
+<meta property="article:published_time" content="2026-05-19T15:01:25.709Z">
+<meta property="article:modified_time" content="2026-05-19T15:02:37.961Z">
 <meta property="article:author" content="wldr">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
-    <title>Frist Blog · wldr114&#39;s Blog</title>
+    <title>学习回顾：从 C 语言到二进制安全 · wldr114&#39;s Blog</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -243,7 +243,7 @@
             <a href="/">wldr114&#39;s Blog</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Frist Blog</a>
+            <a href="#" class="post-name">学习回顾：从 C 语言到二进制安全</a>
         </div>
     </div>
 </header>
@@ -270,7 +270,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Frist Blog
+                学习回顾：从 C 语言到二进制安全
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -286,12 +286,12 @@
 
                 <!-- 文章字数统计 -->
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">107</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.5k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2026/05/08</span>
+                    <span class="post-intro-time">2026/05/19</span>
                     <!-- busuanzi -->
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                             <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
@@ -443,43 +443,121 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul>
-<li>Web 安全学习</li>
-<li>CTF 做题笔记</li>
-<li>Java 基础</li>
-<li>Linux 和工具使用</li>
-</ul>
-<h2 id="最近在学什么"><a href="#最近在学什么" class="headerlink" title="最近在学什么"></a>最近在学什么</h2><p>最近在重新学习 Web 安全，主要了解了：</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学了不少东西，东一块西一块的，趁这个机会整理一下自己到底学了什么，也梳理下以后的方向。这篇算是第二篇正经博客，之前那篇 First Blog 随便写的，不用管它。</p>
+<hr>
+<h2 id="C-C-：从语法到-STL，再到啃不动的书"><a href="#C-C-：从语法到-STL，再到啃不动的书" class="headerlink" title="C&#x2F;C++：从语法到 STL，再到啃不动的书"></a>C&#x2F;C++：从语法到 STL，再到啃不动的书</h2><p>C&#x2F;C++ 是最早系统学的语言，从最基本的语法（指针、内存管理、结构体、类）到 STL 容器（<code>vector</code>、<code>map</code>、<code>set</code>、<code>queue</code>、<code>stack</code>、<code>priority_queue</code> 这些）都过了一遍。STL 不止容器，还有 <code>&lt;algorithm&gt;</code> 里的 <code>sort</code>、<code>lower_bound</code>、<code>next_permutation</code> 等等，刷题常用；<code>&lt;string&gt;</code> 和 <code>&lt;sstream&gt;</code> 做字符串处理也很方便；<code>&lt;functional&gt;</code> 配合 lambda 写起来很顺手。</p>
+<p>书也读了几本：</p>
 <ul>
-<li>文件上传漏洞</li>
-<li>JWT 基础</li>
-<li>BurpSuite 的简单使用</li>
-<li>Java 审计入门</li>
+<li><strong>《C++ Primer》</strong>：经典教材，跟着过了语法和基础特性，但老实说没完全消化，以后当手册翻。</li>
+<li><strong>《Effective C++》</strong>：Scott Meyers 那本，讲了 55 个改善 C++ 编程的建议。难，真的难看懂，很多条款涉及模板、继承体系、异常安全这些深层机制，当时功力不够，只能先混个眼熟。</li>
+<li><strong>《数据结构与算法分析（C 语言描述）》</strong>：这本应该是四大件之一了，也是最感兴趣的一本。树（AVL、红黑树、B 树），图（邻接表&#x2F;邻接矩阵、拓扑排序、最短路径），还有各种散列和堆，深度优先（DFS）和广度优先（BFS）这些算法，写起来很有意思。</li>
+<li><strong>《算法导论》（CLRS）</strong>：砖头书，没通读，当参考书翻了一些章节，主要还是配合数据结构那本一起看。</li>
 </ul>
-<p>虽然现在还比较菜，不过希望以后能坚持更新。</p>
-<h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>这个博客使用 Hexo 搭建，部署在 GitHub Pages 上。</p>
+<hr>
+<h2 id="Python：从脚本小子到安全工具链"><a href="#Python：从脚本小子到安全工具链" class="headerlink" title="Python：从脚本小子到安全工具链"></a>Python：从脚本小子到安全工具链</h2><p>Python 语法学得比较快，算是上手成本最低的语言。真正用起来是学安全之后：</p>
+<h3 id="爬虫-信息搜集"><a href="#爬虫-信息搜集" class="headerlink" title="爬虫 &amp; 信息搜集"></a>爬虫 &amp; 信息搜集</h3><ul>
+<li>**<code>requests</code>**：发 HTTP 请求，模拟登录、抓页面、构造 payload。</li>
+<li>**<code>beautifulsoup4</code>**：解析 HTML，提取表单、链接、隐藏字段。</li>
+<li>**<code>re</code>**：正则匹配，从响应里抠 flag、找敏感信息。</li>
+</ul>
+<h3 id="GUI-开发"><a href="#GUI-开发" class="headerlink" title="GUI 开发"></a>GUI 开发</h3><p>用 <code>tkinter</code> 和 <code>PyQt</code> 写过小工具，给一些安全脚本套个图形界面，不用每次敲命令行。</p>
+<h3 id="PWN-方向"><a href="#PWN-方向" class="headerlink" title="PWN 方向"></a>PWN 方向</h3><p>Python + pwntools 是标配。<code>from pwn import *</code> 一行搞定远程连接、构造 payload、格式化和调试输出。libcsearch 之类的库用来查 libc 版本和偏移，做 ret2libc、one_gadget 都需要。</p>
+<hr>
+<h2 id="Java：基本语法-Android-逆向起步"><a href="#Java：基本语法-Android-逆向起步" class="headerlink" title="Java：基本语法 + Android 逆向起步"></a>Java：基本语法 + Android 逆向起步</h2><p>Java 学了基本语法（面向对象、集合框架、IO），主要用得上的场景是 Android 逆向。碰到过安卓 Java 层的逆向题目，用 <code>jadx</code> 反编译 APK 看源码、分析逻辑、找加密函数入口。对 Smali 也有初步了解。</p>
+<p>Java 的语法和 C++ 接近但又更干净（没有指针那套），做项目比 C++ 省心很多，之后打算用 Java 做点实际的东西。</p>
+<hr>
+<h2 id="汇编：底层的语言"><a href="#汇编：底层的语言" class="headerlink" title="汇编：底层的语言"></a>汇编：底层的语言</h2><p>汇编属于必须掌握但不需要精通的程度。x86&#x2F;x64 指令集基本能看懂，<code>mov</code>、<code>lea</code>、<code>call</code>、<code>ret</code>、<code>push</code>、<code>pop</code> 这些，配合 call convention（cdecl、stdcall、fastcall、System V AMD64 ABI）看反汇编代码。对 PWN 题来说，读汇编是基本功，特别是分析栈帧布局、找返回地址偏移。</p>
+<hr>
+<h2 id="其他语言：广撒网，浅尝辄止"><a href="#其他语言：广撒网，浅尝辄止" class="headerlink" title="其他语言：广撒网，浅尝辄止"></a>其他语言：广撒网，浅尝辄止</h2><table>
+<thead>
+<tr>
+<th>语言</th>
+<th>掌握程度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rust</td>
+<td>略有涉猎</td>
+<td>安全圈热门，owner 机制很特别</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>略有涉猎</td>
+<td>并发模型简洁，写工具很合适</td>
+</tr>
+<tr>
+<td>HTML&#x2F;CSS</td>
+<td>略有涉猎</td>
+<td>懂基础能写页面，也了解 XSS 需要</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>略有涉猎</td>
+<td>前端相关，XSS 核心</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>略有涉猎</td>
+<td>审计过简单代码，文件上传也涉及</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="操作系统-Linux"><a href="#操作系统-Linux" class="headerlink" title="操作系统 &amp; Linux"></a>操作系统 &amp; Linux</h2><p>操作系统方面基本专注 Linux，毕竟大部分工具链和安全实验都在 Linux 下跑。</p>
+<ul>
+<li>**<a target="_blank" rel="noopener" href="https://pwn.college/">pwn.college</a>**：ASU 的开源 CTF 平台，从 Linux 基础到高级二进制漏洞利用，循序渐进，质量很高。在上面刷了不少模块。</li>
+<li><strong>网络测试</strong>：用过 Wireshark 抓包分析流量，Maltego 做信息关联和 OSCINT 侦察。</li>
+<li><strong>二进制调试工具链</strong>：<ul>
+<li><code>pwndbg</code>：GDB 的 PWN 增强插件，heap 可视化、context 自动显示、ROPgadget 查找，日用必备。</li>
+<li><code>GDB</code>：原版 GNU Debugger，配合 <code>gef</code>、<code>peda</code> 也用过。</li>
+<li><code>objdump</code> &#x2F; <code>readelf</code>：静态分析二进制文件结构和反汇编。</li>
+<li><code>checksec</code>：检查二进制保护机制（PIE、NX、Canary、RELRO、FORTIFY）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="安全方向：杂七杂八的经验"><a href="#安全方向：杂七杂八的经验" class="headerlink" title="安全方向：杂七杂八的经验"></a>安全方向：杂七杂八的经验</h2><h3 id="Web-安全"><a href="#Web-安全" class="headerlink" title="Web 安全"></a>Web 安全</h3><ul>
+<li><strong>SQL 注入</strong>：在 SQL-Lab 平台逐关复现过，从 Union 注入、报错注入、布尔盲注到时间盲注，再到二次注入、堆叠注入，基本把常见类型过了一遍。</li>
+<li><strong>Burp Suite</strong>：爆破、抓包改包、Intruder 模块配合字典跑弱口令。</li>
+<li><strong>Apache</strong>：简单了解过 Apache 配置和常见漏洞（目录遍历、文件解析漏洞）。</li>
+</ul>
+<h3 id="逆向工程（Reverse）"><a href="#逆向工程（Reverse）" class="headerlink" title="逆向工程（Reverse）"></a>逆向工程（Reverse）</h3><ul>
+<li><strong>花指令</strong>：反汇编干扰，通过修改跳转绕过。</li>
+<li><strong>平铺（代码平坦化）</strong>：控制流混淆，用符号执行或动调追踪还原逻辑。</li>
+<li><strong>加解密算法识别</strong>：常见的 base64、AES、DES、RC4、TEA、XXTEA，能识别特征并逆向还原（或写出解密脚本）。</li>
+</ul>
+<h3 id="PWN-二进制漏洞利用"><a href="#PWN-二进制漏洞利用" class="headerlink" title="PWN &#x2F; 二进制漏洞利用"></a>PWN &#x2F; 二进制漏洞利用</h3><ul>
+<li><strong>栈溢出</strong>：最经典的攻击面，覆盖返回地址 → ret2text → ret2shellcode → ret2libc → ret2csu → ret2dlresolve，逐渐深入。</li>
+<li><strong>堆溢出</strong>：ptmalloc2 的内存管理机制（bin、tcache、fastbin），<code>use after free</code>、<code>double free</code>、<code>off-by-one</code>、<code>unsorted bin attack</code>、<code>tcache poisoning</code> 等利用手法。</li>
+<li><strong>内核</strong>：目前还在入门阶段，了解 LKM、漏洞触发、<code>commit_creds(prepare_kernel_cred(0))</code> 这个经典提权链，还有 KPTI、SMEP&#x2F;SMAP 这些缓解机制。</li>
+</ul>
+<hr>
+<h2 id="以后的方向"><a href="#以后的方向" class="headerlink" title="以后的方向"></a>以后的方向</h2><p>学了不少，但很多都是蜻蜓点水。接下来想重点深入：</p>
+<ol>
+<li><strong>Web 安全</strong>：把 XSS（反射型、存储型、DOM 型）吃透，CSP 绕过也要研究。Linux 渗透测试的完整流程从信息收集到提权。</li>
+<li><strong>逆向</strong>：Android 逆向（so 层 Native 逆向，Frida hook），macOS&#x2F;iOS 逆向有兴趣但不急。</li>
+<li><strong>二进制</strong>：PWN 往内核方向深入，堆利用再巩固，浏览器漏洞方向也可以了解。</li>
+<li><strong>开发</strong>：用 Java 做一两个完整的项目出来，实战练手。Go 写安全工具作为辅助语言。</li>
+</ol>
+<p>路还很长，坚持写博客记录吧。</p>
 
     </article>
     <!-- license -->
         <div class="license-wrapper">
             <p>原文作者：<a href="http://example.com">wldr</a>
-            <p>原文链接：<a href="http://example.com/2026/05/08/Frist%20Blog/">http://example.com/2026/05/08/Frist%20Blog/</a>
-            <p>发表日期：<a href="http://example.com/2026/05/08/Frist%20Blog/">May 8th 2026, 2:57:18 pm</a>
-            <p>更新日期：<a href="http://example.com/2026/05/08/Frist%20Blog/">May 19th 2026, 11:37:25 am</a>
+            <p>原文链接：<a href="http://example.com/2026/05/19/Learning-Retrospective/">http://example.com/2026/05/19/Learning-Retrospective/</a>
+            <p>发表日期：<a href="http://example.com/2026/05/19/Learning-Retrospective/">May 19th 2026, 11:01:25 pm</a>
+            <p>更新日期：<a href="http://example.com/2026/05/19/Learning-Retrospective/">May 19th 2026, 11:02:37 pm</a>
             <p>版权声明：Copyright © 2026 wldr114</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2026/05/19/Git-Getting-Started/" title="Git 入门：从 clone 到 push">
-                    <div class="nextTitle">Git 入门：从 clone 到 push</div>
-                </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2024/12/28/hello-world/" title="Hello World">
-                    <div class="prevTitle">Hello World</div>
+                <a href="/2026/05/19/Git-Getting-Started/" title="Git 入门：从 clone 到 push">
+                    <div class="prevTitle">Git 入门：从 clone 到 push</div>
                 </a>
         </li>
     </ul>
@@ -531,7 +609,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">我的第一篇博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E8%BF%91%E5%9C%A8%E5%AD%A6%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">最近在学什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.2.</span> <span class="toc-text">关于这个博客</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-C-%EF%BC%9A%E4%BB%8E%E8%AF%AD%E6%B3%95%E5%88%B0-STL%EF%BC%8C%E5%86%8D%E5%88%B0%E5%95%83%E4%B8%8D%E5%8A%A8%E7%9A%84%E4%B9%A6"><span class="toc-number">2.</span> <span class="toc-text">C&#x2F;C++：从语法到 STL，再到啃不动的书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%EF%BC%9A%E4%BB%8E%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90%E5%88%B0%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-number">3.</span> <span class="toc-text">Python：从脚本小子到安全工具链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB-%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">3.1.</span> <span class="toc-text">爬虫 &amp; 信息搜集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GUI-%E5%BC%80%E5%8F%91"><span class="toc-number">3.2.</span> <span class="toc-text">GUI 开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PWN-%E6%96%B9%E5%90%91"><span class="toc-number">3.3.</span> <span class="toc-text">PWN 方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-Android-%E9%80%86%E5%90%91%E8%B5%B7%E6%AD%A5"><span class="toc-number">4.</span> <span class="toc-text">Java：基本语法 + Android 逆向起步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%EF%BC%9A%E5%BA%95%E5%B1%82%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-number">5.</span> <span class="toc-text">汇编：底层的语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%EF%BC%9A%E5%B9%BF%E6%92%92%E7%BD%91%EF%BC%8C%E6%B5%85%E5%B0%9D%E8%BE%84%E6%AD%A2"><span class="toc-number">6.</span> <span class="toc-text">其他语言：广撒网，浅尝辄止</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux"><span class="toc-number">7.</span> <span class="toc-text">操作系统 &amp; Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%96%B9%E5%90%91%EF%BC%9A%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%BB%8F%E9%AA%8C"><span class="toc-number">8.</span> <span class="toc-text">安全方向：杂七杂八的经验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E5%AE%89%E5%85%A8"><span class="toc-number">8.1.</span> <span class="toc-text">Web 安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%EF%BC%88Reverse%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">逆向工程（Reverse）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PWN-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">8.3.</span> <span class="toc-text">PWN &#x2F; 二进制漏洞利用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%90%8E%E7%9A%84%E6%96%B9%E5%90%91"><span class="toc-number">9.</span> <span class="toc-text">以后的方向</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
