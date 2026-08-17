@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Neco-Arc interactive skin — draggable sprites + speed control + panel
+   Neco-Arc interactive skin — per-item controls only (no settings panel)
    Ported from dsh-neco-arc. Sprites play from PNG sprite sheets via CSS
    steps() so playback speed is adjustable; mika.jpg is the badge + favicon.
    ========================================================================== */
@@ -51,7 +51,7 @@
   animation: none !important;
 }
 
-/* hover controls: shrink / grow / (settings) / hide */
+/* hover controls: shrink / grow / speed / hide */
 .neco-arc-ctrl {
   display: none;
   position: absolute;
@@ -82,6 +82,14 @@
 .neco-arc-ctrl button:hover {
   background: #fff;
 }
+.neco-arc-ctrl button.neco-arc-speed {
+  width: auto;
+  min-width: 30px;
+  border-radius: 8px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
 
 /* idle float */
 @keyframes nc-float {
@@ -92,100 +100,6 @@
 /* sprite-sheet playback */
 @keyframes nc-frames {
   to { background-position: var(--nc-shift, 0) 0; }
-}
-
-/* ---- settings panel ---- */
-#neco-arc-panel {
-  position: fixed;
-  right: 20px;
-  bottom: 96px;
-  width: 320px;
-  max-width: calc(100vw - 24px);
-  background: rgba(255, 255, 255, 0.97);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  padding: 16px;
-  z-index: 10001;
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  pointer-events: auto;
-  font-family: inherit;
-  color: #333;
-}
-#neco-arc-panel.open {
-  display: flex;
-}
-#neco-arc-panel .nap-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-#neco-arc-panel .nap-title {
-  font-size: 15px;
-  font-weight: 700;
-}
-#neco-arc-panel .nap-close {
-  border: none;
-  background: transparent;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  color: #888;
-  padding: 0 2px;
-}
-#neco-arc-panel .nap-hint {
-  font-size: 12px;
-  color: #888;
-  margin-top: -6px;
-}
-.nap-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.nap-btn {
-  border: 1px solid #ddd;
-  background: transparent;
-  color: #333;
-  border-radius: 14px;
-  padding: 7px 16px;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 20px;
-  font-family: inherit;
-}
-.nap-btn.active {
-  border-color: #b58900;
-  background: #f5efe0;
-  color: #7a5c00;
-}
-.nap-chip {
-  border: 1px solid #ddd;
-  background: transparent;
-  color: #999;
-  border-radius: 12px;
-  padding: 3px 10px;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 18px;
-  font-family: inherit;
-}
-.nap-chip.active {
-  border-color: #b58900;
-  background: #f5efe0;
-  color: #7a5c00;
-}
-.nap-slider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  color: #666;
-}
-.nap-slider input[type="range"] {
-  flex: 1;
 }
 
 /* respect reduced-motion users */

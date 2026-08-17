@@ -1,10 +1,9 @@
 /* ==========================================================================
- * Neco-Arc interactive skin (ported from dsh-neco-arc)
+ * Neco-Arc interactive skin (ported from dsh-neco-arc, panel removed)
  *
  * - 6 draggable Neco-Arc sprites + a draggable mika badge
- * - hover controls: − shrink / + grow / ⚙ settings (badge) / × hide
- * - settings panel: master on/off, speed 0.5×–3×, per-item visibility,
- *   show/hide all, reset
+ * - hover controls on each item:
+ *     − shrink · + grow · speed (sprites only) · × hide
  * - positions / sizes / speed / visibility persist in localStorage
  * ========================================================================== */
 (function () {
@@ -22,23 +21,15 @@
     { key: 'nc-6', src: '6.sheet.png', cls: 'nc-6', w: 72, frames: 4,  ar: 1.4348, totalMs: 400 },
   ]
   var BADGE_W = 64
+  var SPEEDS = [0.5, 1, 1.5, 2, 3]
 
-  var MODE_KEY = 'neco-arc.mode'
   var STATE_KEY = 'neco-arc.state'
 
-  var mode = readMode()
   var state = { speed: 1, items: freshItems() }
   var itemEls = {}
   var overlay = null
-  var panel = null
 
   /* ---- persistence ---- */
-  function readMode() {
-    try { return localStorage.getItem(MODE_KEY) === 'off' ? 'off' : 'on' } catch (e) { return 'on' }
-  }
-  function writeMode(m) {
-    try { localStorage.setItem(MODE_KEY, m) } catch (e) { /* ignore */ }
-  }
   function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)) }
 
   function freshItems() {
@@ -91,9 +82,9 @@
     wrap.className = 'neco-arc-item ' + s.cls
     var face = document.createElement('div')
     face.className = 'neco-arc-face'
-    wrap.appendChild(face)
-    wrap.appendChild(buildCtrl(s.key, false))
     itemEls[s.key] = { wrap: wrap, face: face, sprite: s }
+    wrap.appendChild(face)
+    wrap.appendChild(buildCtrl(s.key, true))
     bindDrag(wrap, face, s.key)
     applyItem(s.key)
     return wrap
@@ -105,14 +96,14 @@
     var face = document.createElement('div')
     face.className = 'neco-arc-face neco-arc-badge-face'
     wrap.appendChild(face)
-    wrap.appendChild(buildCtrl('badge', true))
+    wrap.appendChild(buildCtrl('badge', false))
     itemEls.badge = { wrap: wrap, face: face, sprite: null }
     bindDrag(wrap, face, 'badge')
     applyItem('badge')
     return wrap
   }
 
-  function buildCtrl(key, withGear) {
+  function buildCtrl(key, withSpeed) {
     var bar = document.createElement('div')
     bar.className = 'neco-arc-ctrl'
 
@@ -127,11 +118,15 @@
     bar.appendChild(dec)
     bar.appendChild(inc)
 
-    if (withGear) {
-      var gear = document.createElement('button')
-      gear.type = 'button'; gear.textContent = '⚙'; gear.title = '皮肤设置'
-      gear.addEventListener('click', function (e) { e.stopPropagation(); togglePanel() })
-      bar.appendChild(gear)
+    if (withSpeed) {
+      var spd = document.createElement('button')
+      spd.type = 'button'
+      spd.className = 'neco-arc-speed'
+      spd.textContent = state.speed + '×'
+      spd.title = '动图速度（点击切换）'
+      spd.addEventListener('click', function (e) { e.stopPropagation(); cycleSpeed() })
+      bar.appendChild(spd)
+      itemEls[key].speedBtn = spd
     }
 
     var hide = document.createElement('button')
@@ -203,6 +198,13 @@
     })
   }
 
+  function syncSpeedButtons() {
+    SPRITES.forEach(function (s) {
+      var rec = itemEls[s.key]
+      if (rec && rec.speedBtn) rec.speedBtn.textContent = state.speed + '×'
+    })
+  }
+
   /* ---- drag ---- */
   var drag = null
   function bindDrag(wrap, face, key) {
@@ -245,164 +247,22 @@
   }
   function toggleItem(key) {
     state.items[key].visible = !state.items[key].visible
-    applyItem(key); saveState(); syncPanel()
+    applyItem(key); saveState()
   }
-  function setAllVisible(v) {
-    Object.keys(state.items).forEach(function (k) { state.items[k].visible = v; applyItem(k) })
-    saveState(); syncPanel()
-  }
-  function setSpeed(v) {
-    state.speed = clamp(v, 0.5, 3)
-    applySpeed(); saveState(); syncPanel()
-  }
-  function resetAll() {
-    state.speed = 1
-    state.items = freshItems()
-    Object.keys(itemEls).forEach(applyItem)
-    applySpeed(); saveState(); syncPanel()
-  }
-  function setMode(m) {
-    mode = m
-    writeMode(m)
-    applyMode(); syncPanel()
-  }
-  function applyMode() {
-    if (overlay) overlay.style.display = mode === 'off' ? 'none' : ''
-    if (mode === 'off' && panel) panel.classList.remove('open')
-  }
-
-  /* ---- settings panel ---- */
-  function buildPanel() {
-    panel = document.createElement('div')
-    panel.id = 'neco-arc-panel'
-
-    var head = document.createElement('div')
-    head.className = 'nap-head'
-    var title = document.createElement('div')
-    title.className = 'nap-title'
-    title.textContent = 'Neco-Arc 皮肤'
-    var close = document.createElement('button')
-    close.type = 'button'
-    close.className = 'nap-close'
-    close.title = '关闭'
-    close.textContent = '×'
-    close.addEventListener('click', function () { panel.classList.remove('open') })
-    head.appendChild(title)
-    head.appendChild(close)
-
-    var hint = document.createElement('div')
-    hint.className = 'nap-hint'
-    hint.textContent = '动图/角标可拖动；悬停显示 − + × 可缩放/隐藏；设置自动保存'
-
-    /* master on/off + reset */
-    var row1 = document.createElement('div')
-    row1.className = 'nap-row'
-    var btnOn = document.createElement('button')
-    btnOn.type = 'button'; btnOn.className = 'nap-btn'; btnOn.textContent = '开启'
-    btnOn.addEventListener('click', function () { setMode('on') })
-    var btnOff = document.createElement('button')
-    btnOff.type = 'button'; btnOff.className = 'nap-btn'; btnOff.textContent = '关闭'
-    btnOff.addEventListener('click', function () { setMode('off') })
-    var btnReset = document.createElement('button')
-    btnReset.type = 'button'; btnReset.className = 'nap-btn'; btnReset.textContent = '复位到默认'
-    btnReset.addEventListener('click', resetAll)
-    row1.appendChild(btnOn)
-    row1.appendChild(btnOff)
-    row1.appendChild(btnReset)
-
-    /* speed slider */
-    var speedRow = document.createElement('div')
-    speedRow.className = 'nap-slider'
-    var speedLabel = document.createElement('span')
-    speedLabel.textContent = '动图速度 1.0×'
-    var speedInput = document.createElement('input')
-    speedInput.type = 'range'
-    speedInput.min = '0.5'
-    speedInput.max = '3'
-    speedInput.step = '0.1'
-    speedInput.value = String(state.speed)
-    speedInput.addEventListener('input', function () {
-      setSpeed(parseFloat(speedInput.value))
-      speedLabel.textContent = '动图速度 ' + state.speed.toFixed(1) + '×'
-    })
-    speedRow.appendChild(speedLabel)
-    speedRow.appendChild(speedInput)
-
-    /* per-item chips */
-    var row2 = document.createElement('div')
-    row2.className = 'nap-row'
-    SPRITES.forEach(function (s, i) {
-      row2.appendChild(chip('动图' + (i + 1), s.key))
-    })
-    row2.appendChild(chip('角标', 'badge'))
-
-    /* show / hide all */
-    var row3 = document.createElement('div')
-    row3.className = 'nap-row'
-    var showAll = document.createElement('button')
-    showAll.type = 'button'; showAll.className = 'nap-chip active'; showAll.textContent = '全部显示'
-    showAll.addEventListener('click', function () { setAllVisible(true) })
-    var hideAll = document.createElement('button')
-    hideAll.type = 'button'; hideAll.className = 'nap-chip active'; hideAll.textContent = '全部隐藏'
-    hideAll.addEventListener('click', function () { setAllVisible(false) })
-    row3.appendChild(showAll)
-    row3.appendChild(hideAll)
-
-    panel.appendChild(head)
-    panel.appendChild(hint)
-    panel.appendChild(row1)
-    panel.appendChild(speedRow)
-    panel.appendChild(row2)
-    panel.appendChild(row3)
-    document.body.appendChild(panel)
-
-    /* keep references for syncing */
-    panel._btnOn = btnOn
-    panel._btnOff = btnOff
-    panel._speedLabel = speedLabel
-    panel._speedInput = speedInput
-    panel._showAll = showAll
-    panel._hideAll = hideAll
-    panel._chips = {}
-    var chipEls = row2.querySelectorAll('.nap-chip')
-    SPRITES.forEach(function (s, i) { panel._chips[s.key] = chipEls[i] })
-    panel._chips.badge = chipEls[SPRITES.length]
-
-    syncPanel()
-  }
-
-  function chip(label, key) {
-    var b = document.createElement('button')
-    b.type = 'button'
-    b.className = 'nap-chip active'
-    b.textContent = label
-    b.addEventListener('click', function () { toggleItem(key) })
-    return b
-  }
-
-  function togglePanel() {
-    if (!panel) return
-    panel.classList.toggle('open')
-  }
-
-  function syncPanel() {
-    if (!panel) return
-    var on = mode !== 'off'
-    panel._btnOn.classList.toggle('active', on)
-    panel._btnOff.classList.toggle('active', !on)
-    panel._speedInput.value = String(state.speed)
-    panel._speedLabel.textContent = '动图速度 ' + state.speed.toFixed(1) + '×'
-    Object.keys(panel._chips).forEach(function (k) {
-      panel._chips[k].classList.toggle('active', state.items[k] && state.items[k].visible !== false)
-    })
+  function cycleSpeed() {
+    var idx = SPEEDS.indexOf(state.speed)
+    if (idx === -1) idx = SPEEDS.indexOf(1)
+    state.speed = SPEEDS[(idx + 1) % SPEEDS.length]
+    applySpeed()
+    syncSpeedButtons()
+    saveState()
   }
 
   /* ---- init ---- */
   function init() {
     loadState()
     buildOverlay()
-    buildPanel()
-    applyMode()
+    syncSpeedButtons()
   }
 
   if (document.readyState === 'loading') {
