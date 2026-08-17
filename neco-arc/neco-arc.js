@@ -23,7 +23,7 @@
   var BADGE_W = 64
   var SPEEDS = [0.5, 1, 1.5, 2, 3]
 
-  var STATE_KEY = 'neco-arc.state'
+  var STATE_KEY = 'neco-arc.state.v2'
 
   var state = { speed: 1, items: freshItems() }
   var itemEls = {}
