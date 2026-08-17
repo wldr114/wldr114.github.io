@@ -10,24 +10,26 @@
     <meta name="copyright" content="wldr">
         <meta name="keywords" content="Web Security,CTF,Java,Hexo,Cyber Security">
     <meta name="description" content="">
-    <meta name="description" content="前言今天开始捣鼓 Git 和 GitHub  写点项目、学好版本控制 成果展示先贴一张今天的成果图  Git 工作流实战操作流程 1. 克隆仓库到本地12git clone https:&#x2F;&#x2F;github.com&#x2F;wldr114&#x2F;school-lab-experiments# 把远程仓库完整复制到本地，会自动创建本地目录  2. 创建并切换到新分支123git checkout -b my-feat">
+    <meta name="description" content="起因折腾博客的时候看到一个给 DeepSeek Harness Web 做的皮肤插件 dsh-neco-arc，效果是 6 只 Neco-Arc 猫猫动图漂浮在页面上，可以拖动、缩放、调速，还有一个 mika 头像做角标。觉得很有意思，就想把这套东西搬到自己的 Hexo 博客上。 这篇文章记录一下从「读别人代码」到「移植到自己博客」的完整过程，以及踩的几个坑。 拆解 dsh-neco-arc 的实">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 入门：从 clone 到 push">
-<meta property="og:url" content="https://wldr114.github.io/2026/05/19/Git-Getting-Started/index.html">
+<meta property="og:title" content="给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤">
+<meta property="og:url" content="https://wldr114.github.io/2026/08/17/Neco-Arc-Blog-Skin/index.html">
 <meta property="og:site_name" content="wldr114&#39;s Blog">
-<meta property="og:description" content="前言今天开始捣鼓 Git 和 GitHub  写点项目、学好版本控制 成果展示先贴一张今天的成果图  Git 工作流实战操作流程 1. 克隆仓库到本地12git clone https:&#x2F;&#x2F;github.com&#x2F;wldr114&#x2F;school-lab-experiments# 把远程仓库完整复制到本地，会自动创建本地目录  2. 创建并切换到新分支123git checkout -b my-feat">
+<meta property="og:description" content="起因折腾博客的时候看到一个给 DeepSeek Harness Web 做的皮肤插件 dsh-neco-arc，效果是 6 只 Neco-Arc 猫猫动图漂浮在页面上，可以拖动、缩放、调速，还有一个 mika 头像做角标。觉得很有意思，就想把这套东西搬到自己的 Hexo 博客上。 这篇文章记录一下从「读别人代码」到「移植到自己博客」的完整过程，以及踩的几个坑。 拆解 dsh-neco-arc 的实">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wldr114.github.io/pt/git.png">
-<meta property="article:published_time" content="2026-05-19T05:13:25.053Z">
-<meta property="article:modified_time" content="2026-05-19T05:17:27.046Z">
+<meta property="article:published_time" content="2026-08-17T15:17:52.400Z">
+<meta property="article:modified_time" content="2026-08-17T15:18:14.457Z">
 <meta property="article:author" content="wldr">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wldr114.github.io/pt/git.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/neco-arc/mika.jpg">
     <link rel="stylesheet" href="/neco-arc/neco-arc.css?v=5">
-    <title>Git 入门：从 clone 到 push · wldr114&#39;s Blog</title>
+    <title>给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤 · wldr114&#39;s Blog</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -246,7 +248,7 @@
             <a href="/">wldr114&#39;s Blog</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Git 入门：从 clone 到 push</a>
+            <a href="#" class="post-name">给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤</a>
         </div>
     </div>
 </header>
@@ -273,7 +275,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Git 入门：从 clone 到 push
+                给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -285,16 +287,20 @@
             <div class="post-intros">
                 <!-- 文章页标签  -->
                     <div class="post-intro-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Hexo">Hexo</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="前端">前端</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
 </div>
 
                 <!-- 文章字数统计 -->
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">421</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2026/05/19</span>
+                    <span class="post-intro-time">2026/08/17</span>
                     <!-- busuanzi -->
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                             <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
@@ -446,47 +452,75 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天开始捣鼓 Git 和 GitHub  写点项目、学好版本控制</p>
-<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>先贴一张今天的成果图</p>
-<p><img src="/pt/git.png" alt="Git 操作截图"></p>
-<h2 id="Git-工作流实战"><a href="#Git-工作流实战" class="headerlink" title="Git 工作流实战"></a>Git 工作流实战</h2><p>操作流程</p>
-<h3 id="1-克隆仓库到本地"><a href="#1-克隆仓库到本地" class="headerlink" title="1. 克隆仓库到本地"></a>1. 克隆仓库到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/wldr114/school-lab-experiments</span><br><span class="line"><span class="comment"># 把远程仓库完整复制到本地，会自动创建本地目录</span></span><br></pre></td></tr></table></figure>
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>折腾博客的时候看到一个给 DeepSeek Harness Web 做的皮肤插件 <code>dsh-neco-arc</code>，效果是 6 只 Neco-Arc 猫猫动图漂浮在页面上，可以拖动、缩放、调速，还有一个 mika 头像做角标。觉得很有意思，就想把这套东西搬到自己的 Hexo 博客上。</p>
+<p>这篇文章记录一下从「读别人代码」到「移植到自己博客」的完整过程，以及踩的几个坑。</p>
+<h2 id="拆解-dsh-neco-arc-的实现"><a href="#拆解-dsh-neco-arc-的实现" class="headerlink" title="拆解 dsh-neco-arc 的实现"></a>拆解 dsh-neco-arc 的实现</h2><p>先读了一遍源码，它的结构很清晰：</p>
+<ul>
+<li><strong>host 侧</strong>（<code>lib/index.js</code>）：起一个静态资源路由 <code>/neco-arc/*</code>，只放行白名单里的文件（<code>1.gif</code>~&#96;6.gif<code>、</code>mika.jpg<code>、精灵图等），顺手把页面 favicon 换成 </code>mika.jpg&#96;。</li>
+<li><strong>client 侧</strong>（<code>client/client.js</code>）：注入一段 <code>&lt;style&gt;</code> + 用 React 在几个 slot 里渲染动图层、设置面板、侧栏开关。</li>
+</ul>
+<p>核心思路有三层：</p>
+<ol>
+<li><strong>背景</strong>：整页背景图 + 半透明 token，让皮肤氛围透出来。</li>
+<li><strong>精灵图</strong>：6 张动图不是直接放 GIF，而是用 <strong>PNG 精灵图（sprite sheet）+ CSS <code>steps()</code></strong> 播放，这样才能调播放速度（GIF 的速度是写死的，改不了）。</li>
+<li><strong>交互</strong>：拖拽用 Pointer Events 的 <code>setPointerCapture</code>，位置&#x2F;大小&#x2F;速度&#x2F;可见性全部存 <code>localStorage</code>。</li>
+</ol>
+<p>精灵图播放的原理就是：</p>
+<ul>
+<li>每只猫的动画帧水平拼成一张长图（比如 1 号猫 10 帧拼成 1440×163 的 PNG）。</li>
+<li>用一个 <code>div</code> 把这张长图设为背景，<code>background-size</code> 拉成 <code>帧数 × 单帧宽</code>。</li>
+<li>通过移动 <code>background-position</code> 来切换显示哪一帧。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 移动 background-position 切帧 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> nc-frames &#123;</span><br><span class="line">  <span class="selector-tag">to</span> &#123; <span class="attribute">background-position</span>: <span class="built_in">var</span>(--nc-shift, <span class="number">0</span>) <span class="number">0</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-创建并切换到新分支"><a href="#2-创建并切换到新分支" class="headerlink" title="2. 创建并切换到新分支"></a>2. 创建并切换到新分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b my-feature</span><br><span class="line"><span class="comment"># -b 表示创建新分支并切换过去</span></span><br><span class="line"><span class="comment"># my-feature 是分支名，开发新功能最好别直接在 main 上改</span></span><br></pre></td></tr></table></figure>
+<h2 id="移植到-Hexo"><a href="#移植到-Hexo" class="headerlink" title="移植到 Hexo"></a>移植到 Hexo</h2><p>我的博客是 Hexo + archer 主题，没有 React 那套 slot 机制，所以直接用<strong>原生 JS</strong> 重写了一遍客户端逻辑，主题模板里只注入一个 <code>&lt;script&gt;</code> 和一个 <code>&lt;link&gt;</code>。</p>
+<p>资源复制到 <code>source/neco-arc/</code> 下，Hexo 会原样拷进 <code>public/</code>，访问路径就是 <code>/neco-arc/xxx</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source/neco-arc/</span><br><span class="line">├── 1.sheet.png … 6.sheet.png   # 精灵图（可调速）</span><br><span class="line">├── mika.jpg                     # 角标 + favicon</span><br><span class="line">├── neco-arc.css                 # 漂浮动画 + 控制按钮样式</span><br><span class="line">└── neco-arc.js                  # 全部交互逻辑</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-查看改动"><a href="#3-查看改动" class="headerlink" title="3. 查看改动"></a>3. 查看改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br><span class="line"><span class="comment"># 查看工作区相对于暂存区的具体改动内容</span></span><br><span class="line"><span class="comment"># 用来确认自己改了什么，很实用的命令</span></span><br></pre></td></tr></table></figure>
+<p>每个动图的数据配置长这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">SPRITES</span> = [</span><br><span class="line">  &#123; <span class="attr">key</span>: <span class="string">&#x27;nc-1&#x27;</span>, <span class="attr">src</span>: <span class="string">&#x27;1.sheet.png&#x27;</span>, <span class="attr">cls</span>: <span class="string">&#x27;nc-1&#x27;</span>, <span class="attr">w</span>: <span class="number">92</span>, <span class="attr">frames</span>: <span class="number">10</span>, <span class="attr">ar</span>: <span class="number">1.1319</span>, <span class="attr">totalMs</span>: <span class="number">1000</span> &#125;,</span><br><span class="line">  <span class="comment">// w=显示宽度, frames=帧数, ar=高宽比, totalMs=完整循环时长</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-暂存所有改动"><a href="#4-暂存所有改动" class="headerlink" title="4. 暂存所有改动"></a>4. 暂存所有改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"><span class="comment"># . 表示把当前目录下所有改动加入暂存区（staging area）</span></span><br><span class="line"><span class="comment"># git add 之后，改动才算&quot;准备提交&quot;的状态</span></span><br></pre></td></tr></table></figure>
+<p><code>frames</code> 决定切几帧，<code>totalMs</code> 决定完整循环多久，两者一起算出速度。</p>
+<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><h3 id="坑一：GIF-调不了速"><a href="#坑一：GIF-调不了速" class="headerlink" title="坑一：GIF 调不了速"></a>坑一：GIF 调不了速</h3><p>一开始图省事直接放 GIF，结果发现 GIF 的播放速度是文件里写死的，CSS&#x2F;JS 都改不了。要调速只能换成精灵图自己控制切帧节奏。</p>
+<h3 id="坑二：CSS-动画的兼容性"><a href="#坑二：CSS-动画的兼容性" class="headerlink" title="坑二：CSS 动画的兼容性"></a>坑二：CSS 动画的兼容性</h3><p>最早照搬插件的 CSS <code>steps()</code> + <code>@keyframes</code> 方案，本地和线上 DOM 检查都正常（背景图、尺寸、动画名都在），但实际渲染就是出不来图。最后改成 **<code>requestAnimationFrame</code> 直接驱动 <code>background-position</code>**，彻底不依赖 CSS 动画，问题解决：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">tick</span>(<span class="params">now</span>) &#123;</span><br><span class="line">  <span class="variable constant_">SPRITES</span>.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">s</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> rec = itemEls[s.<span class="property">key</span>]</span><br><span class="line">    <span class="keyword">if</span> (!rec || rec.<span class="property">hidden</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">var</span> frameMs = s.<span class="property">totalMs</span> / s.<span class="property">frames</span> / state.<span class="property">speed</span></span><br><span class="line">    <span class="keyword">if</span> (now - rec.<span class="property">lastTime</span> &gt;= frameMs) &#123;</span><br><span class="line">      rec.<span class="property">frameIndex</span> = (rec.<span class="property">frameIndex</span> + <span class="number">1</span>) % s.<span class="property">frames</span></span><br><span class="line">      rec.<span class="property">face</span>.<span class="property">style</span>.<span class="property">backgroundPosition</span> = (-rec.<span class="property">frameIndex</span> * rec.<span class="property">dw</span>) + <span class="string">&#x27;px 0px&#x27;</span></span><br><span class="line">      rec.<span class="property">lastTime</span> = now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="title function_">requestAnimationFrame</span>(tick)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-提交改动"><a href="#5-提交改动" class="headerlink" title="5. 提交改动"></a>5. 提交改动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;更新 README.md&quot;</span></span><br><span class="line"><span class="comment"># -m 后面跟提交信息，描述这次改了什么</span></span><br><span class="line"><span class="comment"># 养成写清楚 commit message 的习惯很重要</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-推送到远程仓库"><a href="#6-推送到远程仓库" class="headerlink" title="6. 推送到远程仓库"></a>6. 推送到远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin my-feature</span><br><span class="line"><span class="comment"># -u 表示把本地分支和远程分支关联起来（upstream）</span></span><br><span class="line"><span class="comment"># origin 是远程仓库的默认名称</span></span><br><span class="line"><span class="comment"># my-feature 是要推送的分支名</span></span><br><span class="line"><span class="comment"># 关联之后，下次直接 git push 就可以</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="一些疑问：git-push-f-危不危险？"><a href="#一些疑问：git-push-f-危不危险？" class="headerlink" title="一些疑问：git push -f 危不危险？"></a>一些疑问：<code>git push -f</code> 危不危险？</h2><p><code>git push -f</code>（即 <code>git push --force</code>）会强行用本地的提交历史覆盖远程分支……</p>
-<h2 id="今日总结"><a href="#今日总结" class="headerlink" title="今日总结"></a>今日总结</h2><p>学习了 Git 的基本工作流clone → 建分支 → 改代码 → diff 检查 → add 暂存 → commit 提交 → push 推送，这是日常开发的标准流程</p>
-<p>以后坚持每天写代码、写博客，慢慢积累</p>
+<p>一个 rAF 循环统一驱动 6 只猫，<code>state.speed</code> 每帧实时读取，改速度立即生效。</p>
+<h3 id="坑三：localStorage-残留状态"><a href="#坑三：localStorage-残留状态" class="headerlink" title="坑三：localStorage 残留状态"></a>坑三：localStorage 残留状态</h3><p>有一版做了个设置面板，里面能「全部隐藏」。后来把面板删了，结果用户强刷后所有动图都不见了——因为旧的 <code>localStorage</code> 里存着 <code>visible: false</code>，新版还在读。解决方式是<strong>给存储 key 加版本号</strong>（<code>neco-arc.state.v3</code>），旧状态直接作废。</p>
+<h3 id="坑四：藏起来就找不回来"><a href="#坑四：藏起来就找不回来" class="headerlink" title="坑四：藏起来就找不回来"></a>坑四：藏起来就找不回来</h3><p>动图 <code>×</code> 掉或者拖出屏幕之后，悬停不到它就没法操作。于是加了一个固定左下角的「恢复 ARC」按钮，一键把所有动图&#x2F;角标复位（显示、位置、大小、速度全回默认）。</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><ul>
+<li><strong>6 只 Neco-Arc 动图 + 1 个 mika 角标</strong> 漂浮在博客页面上，位置沿边缘排布，不挡正文。</li>
+<li>每个元素都能：<strong>拖动</strong>改位置、**<code>+</code>&#x2F;<code>−</code>** 缩放、**<code>1×</code>** 循环调速（0.5×→3×）、**<code>×</code>** 隐藏。</li>
+<li><strong>「恢复 ARC」按钮</strong> 一键复位。</li>
+<li>所有状态存 <code>localStorage</code>，刷新不丢。</li>
+<li>favicon 换成了 mika，右下角有 mika 圆形角标。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个过程其实就是「读一个成熟实现 → 抽离核心思路 → 用更简单的技术栈重写 → 踩坑 → 修」。几个体会：</p>
+<ol>
+<li>精灵图 + 手动切帧是控制动画速度的关键，直接上 GIF 就锁死了。</li>
+<li>CSS 动画很优雅，但遇到兼容性问题时，<code>requestAnimationFrame</code> 手动驱动是最稳的兜底。</li>
+<li>前端状态持久化一定要考虑「版本迁移」，否则改版后老数据会反过来坑你。</li>
+<li>所有「能藏起来」的东西，都得留一个「能找回来」的入口。</li>
+</ol>
+<p>代码都在博客仓库里，感兴趣可以看看 <code>source/neco-arc/</code> 下的实现。</p>
 
     </article>
     <!-- license -->
         <div class="license-wrapper">
             <p>原文作者：<a href="https://wldr114.github.io">wldr</a>
-            <p>原文链接：<a href="https://wldr114.github.io/2026/05/19/Git-Getting-Started/">https://wldr114.github.io/2026/05/19/Git-Getting-Started/</a>
-            <p>发表日期：<a href="https://wldr114.github.io/2026/05/19/Git-Getting-Started/">May 19th 2026, 1:13:25 pm</a>
-            <p>更新日期：<a href="https://wldr114.github.io/2026/05/19/Git-Getting-Started/">May 19th 2026, 1:17:27 pm</a>
+            <p>原文链接：<a href="https://wldr114.github.io/2026/08/17/Neco-Arc-Blog-Skin/">https://wldr114.github.io/2026/08/17/Neco-Arc-Blog-Skin/</a>
+            <p>发表日期：<a href="https://wldr114.github.io/2026/08/17/Neco-Arc-Blog-Skin/">August 17th 2026, 11:17:52 pm</a>
+            <p>更新日期：<a href="https://wldr114.github.io/2026/08/17/Neco-Arc-Blog-Skin/">August 17th 2026, 11:18:14 pm</a>
             <p>版权声明：Copyright © 2026 wldr114</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2026/05/19/Learning-Retrospective/" title="学习回顾：从 C 语言到二进制安全">
-                    <div class="nextTitle">学习回顾：从 C 语言到二进制安全</div>
-                </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2026/05/08/Frist%20Blog/" title="Frist Blog">
-                    <div class="prevTitle">Frist Blog</div>
+                <a href="/2026/05/19/Learning-Retrospective/" title="学习回顾：从 C 语言到二进制安全">
+                    <div class="prevTitle">学习回顾：从 C 语言到二进制安全</div>
                 </a>
         </li>
     </ul>
@@ -538,7 +572,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text">成果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AE%9E%E6%88%98"><span class="toc-number">3.</span> <span class="toc-text">Git 工作流实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%8B%E9%9A%86%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">3.1.</span> <span class="toc-text">1. 克隆仓库到本地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text">2. 创建并切换到新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E6%94%B9%E5%8A%A8"><span class="toc-number">3.3.</span> <span class="toc-text">3. 查看改动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9A%82%E5%AD%98%E6%89%80%E6%9C%89%E6%94%B9%E5%8A%A8"><span class="toc-number">3.4.</span> <span class="toc-text">4. 暂存所有改动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8F%90%E4%BA%A4%E6%94%B9%E5%8A%A8"><span class="toc-number">3.5.</span> <span class="toc-text">5. 提交改动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">3.6.</span> <span class="toc-text">6. 推送到远程仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%96%91%E9%97%AE%EF%BC%9Agit-push-f-%E5%8D%B1%E4%B8%8D%E5%8D%B1%E9%99%A9%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">一些疑问：git push -f 危不危险？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E6%97%A5%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">今日总结</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E8%A7%A3-dsh-neco-arc-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">拆解 dsh-neco-arc 的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E6%A4%8D%E5%88%B0-Hexo"><span class="toc-number">3.</span> <span class="toc-text">移植到 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">踩坑记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E4%B8%80%EF%BC%9AGIF-%E8%B0%83%E4%B8%8D%E4%BA%86%E9%80%9F"><span class="toc-number">4.1.</span> <span class="toc-text">坑一：GIF 调不了速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E4%BA%8C%EF%BC%9ACSS-%E5%8A%A8%E7%94%BB%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">4.2.</span> <span class="toc-text">坑二：CSS 动画的兼容性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E4%B8%89%EF%BC%9AlocalStorage-%E6%AE%8B%E7%95%99%E7%8A%B6%E6%80%81"><span class="toc-number">4.3.</span> <span class="toc-text">坑三：localStorage 残留状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E5%9B%9B%EF%BC%9A%E8%97%8F%E8%B5%B7%E6%9D%A5%E5%B0%B1%E6%89%BE%E4%B8%8D%E5%9B%9E%E6%9D%A5"><span class="toc-number">4.4.</span> <span class="toc-text">坑四：藏起来就找不回来</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="toc-number">5.</span> <span class="toc-text">最终效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">

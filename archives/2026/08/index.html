@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="wldr114&#39;s Blog">
-<meta property="og:url" content="https://wldr114.github.io/archives/2024/12/index.html">
+<meta property="og:url" content="https://wldr114.github.io/archives/2026/08/index.html">
 <meta property="og:site_name" content="wldr114&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="wldr">
@@ -401,19 +401,30 @@
                 <main class="main index-page">
             
         <article class="index-post">
-            <a class="abstract-title" href="/2024/12/28/hello-world/">
-                <span class="abstract-title-text">Hello World</span>
+            <a class="abstract-title" href="/2026/08/17/Neco-Arc-Blog-Skin/">
+                <span class="abstract-title-text">给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤</span>
             </a>
             <div class="abstract-content">
-                
+                起因折腾博客的时候看到一个给 DeepSeek Harness Web 做的皮肤插件 dsh-neco-arc，效果是 6 只 Neco-Arc 猫猫动图漂浮在页面上，可以拖动、缩放、调速，还有一个 mika 头像做角标。觉得很有意思，就想把这套东西搬到自己的 Hexo 博客上。
+这篇文章记录一下从「读别人代码」到「移植到自己博客」的完整过程，以及踩的几个坑。
+拆解 dsh-neco-arc 的实现先读了一遍源码，它的结构很清晰：
+
+host 侧（lib/index.js）：起一个静态资源路由 /neco-arc/*，只放行白名单里的文件（1.gif~&#96;6.gif、mika.jp...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2026/05/08">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/12/28</span>
+                <div class="abstract-date" title="Last updated: 2026/08/17">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2026/08/17</span>
                 </div>
                 <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Hexo">Hexo</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="前端">前端</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+</div>
+
             </div>
         </article>
         <div class="index-post-divider"></div>

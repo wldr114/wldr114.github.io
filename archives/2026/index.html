@@ -401,6 +401,35 @@
                 <main class="main index-page">
             
         <article class="index-post">
+            <a class="abstract-title" href="/2026/08/17/Neco-Arc-Blog-Skin/">
+                <span class="abstract-title-text">给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤</span>
+            </a>
+            <div class="abstract-content">
+                起因折腾博客的时候看到一个给 DeepSeek Harness Web 做的皮肤插件 dsh-neco-arc，效果是 6 只 Neco-Arc 猫猫动图漂浮在页面上，可以拖动、缩放、调速，还有一个 mika 头像做角标。觉得很有意思，就想把这套东西搬到自己的 Hexo 博客上。
+这篇文章记录一下从「读别人代码」到「移植到自己博客」的完整过程，以及踩的几个坑。
+拆解 dsh-neco-arc 的实现先读了一遍源码，它的结构很清晰：
+
+host 侧（lib/index.js）：起一个静态资源路由 /neco-arc/*，只放行白名单里的文件（1.gif~&#96;6.gif、mika.jp...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/08/17">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2026/08/17</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Hexo">Hexo</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="前端">前端</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
             <a class="abstract-title" href="/2026/05/19/Learning-Retrospective/">
                 <span class="abstract-title-text">学习回顾：从 C 语言到二进制安全</span>
             </a>
@@ -517,15 +546,20 @@ Java 审计入门
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 4
+        Total : 5
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span>
+            <a class="archive-post-title" href="/2026/08/17/Neco-Arc-Blog-Skin/">给 Hexo 博客移植一个 Neco-Arc 猫猫皮肤</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">05/19</span>
             <a class="archive-post-title" href="/2026/05/19/Git-Getting-Started/">Git 入门：从 clone 到 push</a>
@@ -554,6 +588,22 @@ Java 审计入门
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="Hexo">
+                <span class="iconfont-archer">&#xe606;</span>
+                Hexo
+            </span>
+            <span class="sidebar-tag-name" data-tags="前端">
+                <span class="iconfont-archer">&#xe606;</span>
+                前端
+            </span>
+            <span class="sidebar-tag-name" data-tags="JavaScript">
+                <span class="iconfont-archer">&#xe606;</span>
+                JavaScript
+            </span>
+            <span class="sidebar-tag-name" data-tags="CSS">
+                <span class="iconfont-archer">&#xe606;</span>
+                CSS
+            </span>
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
