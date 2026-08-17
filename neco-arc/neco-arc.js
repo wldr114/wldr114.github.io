@@ -1,17 +1,17 @@
 /* ==========================================================================
- * Neco-Arc interactive skin (ported from dsh-neco-arc, panel removed)
+ * Neco-Arc interactive skin (JS-driven frame playback, no CSS keyframes)
  *
  * - 6 draggable Neco-Arc sprites + a draggable mika badge
- * - hover controls on each item:
- *     − shrink · + grow · speed (sprites only) · × hide
- * - positions / sizes / speed / visibility persist in localStorage
+ * - hover controls: − shrink · + grow · speed (sprites) · × hide
+ * - frame playback is driven by requestAnimationFrame, so speed is fully
+ *   adjustable and rendering does not depend on CSS animation support
  * ========================================================================== */
 (function () {
   'use strict'
 
   var ASSET = '/neco-arc/'
 
-  /* sprite sheets: w=display width, frames=steps(N), ar=height/width, totalMs=full loop */
+  /* sprite sheets: w=display width, frames=count, ar=height/width, totalMs=full loop */
   var SPRITES = [
     { key: 'nc-1', src: '1.sheet.png', cls: 'nc-1', w: 92, frames: 10, ar: 1.1319, totalMs: 1000 },
     { key: 'nc-2', src: '2.sheet.png', cls: 'nc-2', w: 78, frames: 2,  ar: 1.4348, totalMs: 200 },
@@ -23,13 +23,13 @@
   var BADGE_W = 64
   var SPEEDS = [0.5, 1, 1.5, 2, 3]
 
-  var STATE_KEY = 'neco-arc.state.v2'
+  var STATE_KEY = 'neco-arc.state.v3'
 
   var state = { speed: 1, items: freshItems() }
   var itemEls = {}
   var overlay = null
+  var rafId = null
 
-  /* ---- persistence ---- */
   function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)) }
 
   function freshItems() {
@@ -82,7 +82,7 @@
     wrap.className = 'neco-arc-item ' + s.cls
     var face = document.createElement('div')
     face.className = 'neco-arc-face'
-    itemEls[s.key] = { wrap: wrap, face: face, sprite: s }
+    itemEls[s.key] = { wrap: wrap, face: face, sprite: s, hidden: false, frameIndex: 0, lastTime: 0, dw: 0 }
     wrap.appendChild(face)
     wrap.appendChild(buildCtrl(s.key, true))
     bindDrag(wrap, face, s.key)
@@ -95,9 +95,9 @@
     wrap.className = 'neco-arc-item nc-badge'
     var face = document.createElement('div')
     face.className = 'neco-arc-face neco-arc-badge-face'
+    itemEls.badge = { wrap: wrap, face: face, sprite: null, hidden: false }
     wrap.appendChild(face)
     wrap.appendChild(buildCtrl('badge', false))
-    itemEls.badge = { wrap: wrap, face: face, sprite: null }
     bindDrag(wrap, face, 'badge')
     applyItem('badge')
     return wrap
@@ -144,8 +144,10 @@
     var it = state.items[key]
     if (!it || it.visible === false) {
       rec.wrap.style.display = 'none'
+      rec.hidden = true
       return
     }
+    rec.hidden = false
     rec.wrap.style.display = ''
     var size = it.size || 1
 
@@ -158,22 +160,19 @@
       rec.face.style.backgroundImage = "url('" + ASSET + 'mika.jpg' + "')"
       rec.face.style.backgroundSize = 'cover'
       rec.face.style.backgroundPosition = 'center'
-      rec.face.style.animationName = ''
     } else {
       var s = rec.sprite
       var dw = Math.round(s.w * size)
       var dh = Math.round(dw * s.ar)
       var sheetW = s.frames * dw
+      rec.dw = dw
+      rec.frameIndex = 0
+      rec.lastTime = 0
       rec.face.style.width = dw + 'px'
       rec.face.style.height = dh + 'px'
       rec.face.style.backgroundImage = "url('" + ASSET + s.src + "')"
       rec.face.style.backgroundSize = sheetW + 'px ' + dh + 'px'
       rec.face.style.backgroundPosition = '0px 0px'
-      rec.face.style.animationName = 'nc-frames'
-      rec.face.style.animationDuration = (s.totalMs / 1000 / state.speed) + 's'
-      rec.face.style.animationTimingFunction = 'steps(' + s.frames + ')'
-      rec.face.style.animationIterationCount = 'infinite'
-      rec.face.style.setProperty('--nc-shift', (-sheetW) + 'px')
     }
 
     if (it.x != null) {
@@ -189,13 +188,20 @@
     }
   }
 
-  function applySpeed() {
+  /* ---- frame playback (single rAF loop drives all sprites) ---- */
+  function tick(now) {
     SPRITES.forEach(function (s) {
       var rec = itemEls[s.key]
-      if (rec && rec.face.style.animationName === 'nc-frames') {
-        rec.face.style.animationDuration = (s.totalMs / 1000 / state.speed) + 's'
+      if (!rec || rec.hidden) return
+      var frameMs = s.totalMs / s.frames / state.speed
+      if (!rec.lastTime) rec.lastTime = now
+      if (now - rec.lastTime >= frameMs) {
+        rec.frameIndex = (rec.frameIndex + 1) % s.frames
+        rec.face.style.backgroundPosition = (-rec.frameIndex * rec.dw) + 'px 0px'
+        rec.lastTime = now
       }
     })
+    rafId = requestAnimationFrame(tick)
   }
 
   function syncSpeedButtons() {
@@ -253,7 +259,6 @@
     var idx = SPEEDS.indexOf(state.speed)
     if (idx === -1) idx = SPEEDS.indexOf(1)
     state.speed = SPEEDS[(idx + 1) % SPEEDS.length]
-    applySpeed()
     syncSpeedButtons()
     saveState()
   }
@@ -263,6 +268,7 @@
     loadState()
     buildOverlay()
     syncSpeedButtons()
+    rafId = requestAnimationFrame(tick)
   }
 
   if (document.readyState === 'loading') {

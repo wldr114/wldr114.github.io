@@ -97,11 +97,6 @@
   50%      { transform: translateY(-12px) rotate(3deg); }
 }
 
-/* sprite-sheet playback */
-@keyframes nc-frames {
-  to { background-position: var(--nc-shift, 0) 0; }
-}
-
 /* respect reduced-motion users */
 @media (prefers-reduced-motion: reduce) {
   .neco-arc-item { animation: none !important; }
