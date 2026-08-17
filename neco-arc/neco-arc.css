@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Neco-Arc skin — 6 floating GIF sprites + mika badge
+   Assets: /neco-arc/1.gif … /neco-arc/6.gif, /neco-arc/mika.jpg
+   Inspired by dsh-neco-arc (https://github.com/wldr114/dsh-neco-arc)
+   ========================================================================== */
+
+.neco-arc-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.neco-arc-item {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  line-height: 0;
+}
+
+.neco-arc-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+/* Positions & sizes — mirror the dsh-neco-arc layout so the sprites sit
+   along the edges and keep the article text readable. */
+.neco-arc-1 { left: 5%;  top: 8%;  width: 96px; animation: neco-arc-float 7s   ease-in-out infinite; }
+.neco-arc-2 { right: 7%; top: 14%; width: 80px; animation: neco-arc-float 8.5s ease-in-out -2s infinite; }
+.neco-arc-3 { left: 3%;  top: 42%; width: 68px; animation: neco-arc-float 9s   ease-in-out -4s infinite; }
+.neco-arc-4 { right: 4%; top: 36%; width: 64px; animation: neco-arc-float 7.5s ease-in-out -1s infinite; }
+.neco-arc-5 { left: 6%;  top: 62%; width: 84px; animation: neco-arc-float 10s  ease-in-out -3s infinite; }
+.neco-arc-6 { left: 4%;  bottom: 6%; width: 72px; animation: neco-arc-float 8s  ease-in-out -5s infinite; }
+
+.neco-arc-badge {
+  right: 16px;
+  bottom: 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-image: url('/neco-arc/mika.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35), 0 8px 22px rgba(0, 0, 0, 0.45);
+  animation: neco-arc-float 6s ease-in-out infinite;
+}
+
+@keyframes neco-arc-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .neco-arc-item { animation: none !important; }
+}
+
+/* On small screens the sprites would crowd the text — hide the six floaters
+   and keep only the mika badge. */
+@media screen and (max-width: 960px) {
+  .neco-arc-1,
+  .neco-arc-2,
+  .neco-arc-3,
+  .neco-arc-4,
+  .neco-arc-5,
+  .neco-arc-6 {
+    display: none;
+  }
+}
