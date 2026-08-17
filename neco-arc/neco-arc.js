@@ -263,10 +263,32 @@
     saveState()
   }
 
+  function restoreAll() {
+    state.speed = 1
+    state.items = freshItems()
+    Object.keys(itemEls).forEach(applyItem)
+    syncSpeedButtons()
+    saveState()
+  }
+
+  function buildRestore() {
+    var btn = document.createElement('button')
+    btn.type = 'button'
+    btn.className = 'neco-arc-restore'
+    btn.textContent = '恢复 ARC'
+    btn.title = '恢复所有动图/角标（显示、位置、大小、速度）'
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation()
+      restoreAll()
+    })
+    document.body.appendChild(btn)
+  }
+
   /* ---- init ---- */
   function init() {
     loadState()
     buildOverlay()
+    buildRestore()
     syncSpeedButtons()
     rafId = requestAnimationFrame(tick)
   }
