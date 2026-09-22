@@ -10,7 +10,28 @@
   <rights>All rights reserved 2026, wldr</rights>
   <subtitle>wldr114</subtitle>
   <title>wldr114's Blog</title>
-  <updated>2026-08-17T15:29:45.268Z</updated>
+  <updated>2026-09-22T04:15:59.555Z</updated>
+  <entry>
+    <author>
+      <name>wldr</name>
+    </author>
+    <category term="vulnclaw" scheme="https://wldr114.github.io/tags/vulnclaw/"/>
+    <category term="seendance" scheme="https://wldr114.github.io/tags/seendance/"/>
+    <category term="AIGC" scheme="https://wldr114.github.io/tags/AIGC/"/>
+    <category term="AI" scheme="https://wldr114.github.io/tags/AI/"/>
+    <content>
+      <![CDATA[<h2 id="前面一个月干了啥（后面再写一期）"><a href="#前面一个月干了啥（后面再写一期）" class="headerlink" title="前面一个月干了啥（后面再写一期）"></a>前面一个月干了啥（后面再写一期）</h2><ul><li>服务于AI攻防的agent ，学习vulnclaw</li><li>把web，misc的知识大补了一下，这个太多太杂了，以后当脚本小子了TAT</li><li>整理了一年前的pwn大纲</li><li>搞了下AIGC，<del>这些集成的工具平台拿seedance来开放真的好贵</del></li><li>还有看看qwen，GLM的性能</li></ul><h2 id="这次具体讲讲AIGC吧"><a href="#这次具体讲讲AIGC吧" class="headerlink" title="这次具体讲讲AIGC吧"></a>这次具体讲讲AIGC吧</h2><p><code>markdown</code></p><ul><li>现在就是gpt结合各种skill写写提示词再丢seedance了，感觉有点繁琐，贵也是真的贵<br><code>markdown</code></li></ul><h2 id="后面干点啥"><a href="#后面干点啥" class="headerlink" title="后面干点啥"></a>后面干点啥</h2><ul><li>跑点项目，把渗透那些东西补上</li><li>看看有没有便宜的搞AIGC的东西</li></ul>]]>
+    </content>
+    <id>https://wldr114.github.io/2026/09/22/messy-things/</id>
+    <link href="https://wldr114.github.io/2026/09/22/messy-things/"/>
+    <published>2026-09-21T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="前面一个月干了啥（后面再写一期）"><a href="#前面一个月干了啥（后面再写一期）" class="headerlink" title="前面一个月干了啥（后面再写一期）"></a>前面一个月干了啥（后面再写一期）</h2><ul>
+<li>服务于AI攻防的]]>
+    </summary>
+    <title>这几周搞的一堆乱七八糟的东西</title>
+    <updated>2026-09-22T04:15:59.555Z</updated>
+  </entry>
   <entry>
     <author>
       <name>wldr</name>
