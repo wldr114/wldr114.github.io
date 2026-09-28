@@ -10,7 +10,26 @@
   <rights>All rights reserved 2026, wldr</rights>
   <subtitle>wldr114</subtitle>
   <title>wldr114's Blog</title>
-  <updated>2026-09-22T04:15:59.555Z</updated>
+  <updated>2026-09-28T13:06:47.477Z</updated>
+  <entry>
+    <author>
+      <name>wldr</name>
+    </author>
+    <category term="docker" scheme="https://wldr114.github.io/tags/docker/"/>
+    <category term="vsc ssh" scheme="https://wldr114.github.io/tags/vsc-ssh/"/>
+    <category term="docker workflow" scheme="https://wldr114.github.io/tags/docker-workflow/"/>
+    <content>
+      <![CDATA[<h2 id="vsc远程ssh连接kali虚拟机docker"><a href="#vsc远程ssh连接kali虚拟机docker" class="headerlink" title="vsc远程ssh连接kali虚拟机docker"></a>vsc远程ssh连接kali虚拟机docker</h2><p><img src="/.pt/docker-vscssh.png"></p><h3 id="后面准备搞实验来做那些web攻击防御测试了"><a href="#后面准备搞实验来做那些web攻击防御测试了" class="headerlink" title="后面准备搞实验来做那些web攻击防御测试了"></a>后面准备搞实验来做那些web攻击防御测试了</h3><ul><li>再搞智能体MCP尝试</li></ul>]]>
+    </content>
+    <id>https://wldr114.github.io/2026/09/28/full-docker/</id>
+    <link href="https://wldr114.github.io/2026/09/28/full-docker/"/>
+    <published>2026-09-27T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="vsc远程ssh连接kali虚拟机docker"><a href="#vsc远程ssh连接kali虚拟机docker" class="headerlink" title="vsc远程ssh连接kali虚拟机docker"></a>vsc远程ssh连接kali虚拟机]]>
+    </summary>
+    <title>搞好环境准备做测试</title>
+    <updated>2026-09-28T13:06:47.477Z</updated>
+  </entry>
   <entry>
     <author>
       <name>wldr</name>
